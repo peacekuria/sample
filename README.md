@@ -2,6 +2,151 @@
 
 A modern React-based moving service application built with Vite and Tailwind CSS v4. SmartMove provides a seamless platform for customers to book moving services, manage their moves, and track inventory.
 
+---
+
+## 🛠️ Project Setup (How This Project Was Created)
+
+This section documents the exact steps taken to set up this project from scratch.
+
+### Step 1: Initialize Vite Project
+
+```bash
+npm create vite@latest smartmove -- --template react
+cd smartmove
+```
+
+### Step 2: Install Tailwind CSS v4 with Vite
+
+```bash
+npm install @tailwindcss/vite
+```
+
+### Step 3: Configure Vite for Tailwind
+
+**File: `vite.config.js`**
+```javascript
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+```
+
+### Step 4: Update HTML Entry Point
+
+**File: `index.html`**
+- Changed title to "SmartMove - Moving Made Simple"
+- Updated script source to `/src/main.jsx`
+
+### Step 5: Configure Tailwind CSS
+
+**File: `tailwind.config.js`**
+- Added content paths for all components and pages
+- Extended theme with custom shadows and border radius
+- Custom shadows: `card` and `card-hover`
+- Custom border radius: `card` and `button`
+
+### Step 6: Create Global Styles
+
+**File: `src/style.css`**
+- Imported Tailwind CSS: `@import "tailwindcss";`
+- Defined `@theme` with CSS custom properties for colors and shadows
+- Created component layer with reusable classes:
+  - `.card` - Modern card design
+  - `.btn-primary` - Primary button styling
+  - `.btn-secondary` - Secondary button styling
+  - `.input-field` - Form input styling
+  - `.header` - Sticky header with backdrop blur
+  - `.navbar`, `.logo-container`, `.nav-links` - Navigation components
+- Added global reset and base styles
+- Included custom animations (`fadeIn`)
+- Styled scrollbar for better UX
+
+### Step 7: Set Up Project Structure
+
+Created the following directory structure:
+```
+src/
+├── components/    # Reusable UI components
+├── context/       # React context providers
+├── pages/         # Page components
+├── App.jsx        # Main app component with routing
+├── main.jsx       # Entry point
+├── index.jsx      # Additional entry (legacy)
+└── style.css      # Global styles with Tailwind
+```
+
+### Step 8: Create App Component
+
+**File: `src/App.jsx`**
+- Set up authentication provider
+- Implemented page navigation system
+- Created routing for all pages (Home, Services, About, Login, Signup, MyMoves, Inventory, Movers, Booking, MapView, Admin)
+- Added state management for page transitions
+
+### Step 9: Create Additional Pages & Components
+
+- **Components:**
+  - `Header.jsx` - Navigation header with mobile support
+  - `AuthForm.jsx` - Authentication form component
+
+- **Pages:**
+  - `Home.jsx` - Landing page
+  - `Services.jsx` - Services listing
+  - `About.jsx` - About page
+  - `Login.jsx` / `Signup.jsx` - Authentication pages
+  - `Booking.jsx` - Booking flow
+  - `Inventory.jsx` - Inventory management
+  - `Movers.jsx` - Available movers listing
+  - `MyMoves.jsx` - User's move history
+  - `MapView.jsx` - Map visualization
+  - `Admin.jsx` - Admin dashboard
+
+- **Context:**
+  - `AuthContext.jsx` - Authentication state management
+
+### Step 10: Add Supporting CSS Files
+
+Each page has a corresponding CSS file for page-specific styles:
+- `Home.css`, `Services.css`, `About.css`
+- `Login.css`, `Signup.css`
+- `Booking.css`, `Inventory.css`
+- `Movers.css`, `MyMoves.css`
+- `MapView.css`, `AdminDashboard.css`
+
+### Step 11: Final Dependencies Installed
+
+**From `package.json`:**
+```json
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "vite": "^5.0.10"
+  }
+}
+```
+
+### Step 12: Add Git Integration
+
+Created `.gitignore` with standard Node.js patterns:
+- `node_modules/`
+- `dist/`
+- `.DS_Store`
+- Environment files
+
+---
+
+## 📁 File Structure
+
 ## 📁 File Structure
 
 ```
